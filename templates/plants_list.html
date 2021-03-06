@@ -16,7 +16,18 @@
 
             HINT: Use the plant's _id field as the id for constructing URLs.
         #}
-
+        <div class='items'>
+            {% for plant in plants %}
+                {% set plant_id_url = "/plant/" + plant['_id']|string %}
+                <div class="card">
+                    <a href= {{ plant_id_url }}></a><img src = {{ plant['photo_url'] }} alt="">
+                    <div class="card-content">
+                        <a href={{ plant_id_url }}>{{ plant['name'] }}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+<!-- 
         <div id="items">
             <div class="card">
                 <a href="/plant/1"><img src="https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/tomatoes_helios4eos_gettyimages-edit.jpeg?itok=4KrW14a4"></a>
@@ -50,4 +61,4 @@
 
 </main>
 
-{% endblock content %}
+{% endblock content %} -->
